@@ -2,7 +2,7 @@
 
 fpgen generates the corresponding term(s) of the phase‑space Fokker–Planck equation from a quantum Liouvillian operator expression, in the Cahill–Glauber s‑parameterized quasi‑probability representations (Wigner: s=0, P: s=+1, Q: s=−1). It accepts restricted LaTeX‑like operator expressions and produces either tuple form or a readable LaTeX‑like form.
 
-Authors: Yu Xue-Hao and Qiao Cong-Feng (University of Chinese Academy of Sciences, UCAS)
+**Authors: Yu Xue-Hao and Qiao Cong-Feng (University of Chinese Academy of Sciences, UCAS)**
 
 - Supported representations:
   - Wigner (s = 0)
@@ -10,6 +10,25 @@ Authors: Yu Xue-Hao and Qiao Cong-Feng (University of Chinese Academy of Science
   - Q / Husimi (s = −1)
 - Multi-mode is supported; each latin letter (a, b, c, ...) denotes an independent mode.
 - Input must contain exactly one `\rho`.
+
+## Installation
+
+- Requirements: Python >= 3.8
+- fpgen has no external runtime dependencies (standard library only).
+
+Install from source (editable for development):
+
+```powershell
+git clone https://github.com/PolarisMegrez/fpgen.git
+cd fpgen
+pip install -e .
+```
+
+Or install directly from a local checkout without editable mode:
+
+```powershell
+pip install .
+```
 
 ## Substitution rules (single mode)
 
@@ -38,7 +57,9 @@ Special cases:
 Two main entry points:
 
 ### Main (readable + tuples):
+```python
 opr2fp(expr, output_format='flux'|'normal', max_order=-1, output_style='both'|'tuple'|'latex', representation=None, s=None)
+```
 
 - Returns a formatted string that includes a header (representation, mode mapping, exponent headers) and either/both:
   - Tuples (when output_style includes 'tuple')
@@ -48,8 +69,9 @@ opr2fp(expr, output_format='flux'|'normal', max_order=-1, output_style='both'|'t
   - If both are provided, s takes precedence and representation is ignored with a warning.
 
 ### Programmatic tuples only:
-- _to_fp_with_representation(expr, output_format='flux'|'normal', max_order=-1, representation=None, s=None) -> List[tuple]
-- to_wigner_fp_normal_form(expr, output_format='flux'|'normal', max_order=-1) -> List[tuple] (legacy, Wigner by default)
+```python
+- to_fp_normal_form(expr, output_format='flux'|'normal', max_order=-1, representation=None, s=None) -> List[tuple]
+```
 
 ## Readable printing
 

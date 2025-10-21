@@ -93,4 +93,4 @@ desktop.ini
 *.tmp
 *.temp
 ~$*
-FP_Tool_local.ipynb
+*_local.*

@@ -10,6 +10,8 @@ conversion, formatting, errors) are internal implementation details and may
 change. Prefer importing only the two entrypoints above from this package.
 """
 
+__version__ = "0.1.0"
+
 from .api import (
     opr2fp,
     to_fp_normal_form,

@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fpgen"
+dynamic = ["version"]
+description = "s-ordered (Wigner/P/Q) Fokker–Planck toolkit. Readable and programmatic exports."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [ { name = "Yu Xue-Hao" }, { name = "Qiao Cong-Feng" } ]
+keywords = ["Fokker-Planck", "Wigner", "phase-space", "quantum", "Cahill-Glauber"]
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering",
+]
+requires-python = ">=3.8"
+
+[project.urls]
+"Homepage" = "https://github.com/PolarisMegrez/fpgen"
+"Repository" = "https://github.com/PolarisMegrez/fpgen"
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["tests*"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "fpgen.__version__" }
